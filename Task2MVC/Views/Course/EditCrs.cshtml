@@ -1,0 +1,78 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "EditCrs";
+}
+
+<h1>Edit Course </h1>
+
+<div class="card ">
+
+    <form method="post" action="/Course/SaveAfterEdit/@Model.ID" class="form-group">
+
+        <input asp-for="ID" value="@Model.ID" hidden />
+
+        <label asp-for="name"></label>
+        <input asp-for="name" class="form-control" />
+        <span asp-validation-for="name" class="text-danger"></span>
+        <br />
+
+        <label asp-for="degree"></label>
+        <input asp-for="degree" class="form-control" />
+        <span asp-validation-for="degree" class="text-danger" ></span>
+        <br />
+
+        <label asp-for="mindgree"></label>
+        <input asp-for="mindgree" class="form-control" />
+        <span asp-validation-for="mindgree" class="text-danger" ></span>
+        <br />
+
+
+        <br /><br />
+        <button type="submit" class="btn btn-outline-success">Save</button>
+        <br /><br />
+        <button type="button" class="btn btn-outline-success" onclick="location.href='@Url.Action("ShowAll", "Course")'">Back to List</button>
+</form>
+</div>
+
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+    }
+
+        .card button {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+</style>
+
+
+
+
+
+@*  <label asp-for="DepartmentId"></label>
+
+        <select asp-for="DepartmentId" asp-items="deptsOptions"></select>
+
+        <br />
+        <label asp-for="CourseId"></label>
+
+        <select asp-for="CourseId" asp-items="crsOptions"></select> *@

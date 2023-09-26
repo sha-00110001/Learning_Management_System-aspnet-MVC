@@ -1,0 +1,49 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form method="post" action="/Instructor/Delete/@Model/@Model.Id>
+    <div class="modal"  role="dialog">
+        <div class="modal-dialog" tabindex="-1" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                 <br />
+                </div>
+                <div class="modal-body">
+                    <p> You Will delete Instructor With Id @Model.Id </p>
+                    <p style="text-align:center"> Are you Sure ? </p>
+                </div>
+                <div class="modal-footer">
+                    <a asp-action="Delete2" asp-controller="Instructor" asp-route-Id="@Model.Id" class="btn btn-outline-danger">Delete</a>
+
+                    <a asp-action="ShowAllWithVModel" asp-controller="Instructor" class="btn btn-outline-success">No </a>
+             </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+    }
+
+        .card button {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+</style>

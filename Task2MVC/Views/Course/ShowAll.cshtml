@@ -1,0 +1,58 @@
+﻿@model List<Course>
+@{
+    ViewData["Title"] = "ShowAll";
+}
+
+<h1>All Courses</h1>
+
+
+<a asp-action="NewCrs" asp-controller="Course"  class=" btn btn-outline-success">Add New Course</a>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Degree </th>
+            <th scope="col">Min Degree </th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.ID</td>
+                <td>@i.name</td>
+                <td>@i.degree</td>
+                <td>@i.mindgree</td>
+                <td><p> <a asp-action="EditCrs" asp-controller="Course" asp-route-id ="@i.ID" class="btn btn-outline-success"> Edit </a> </p></td>
+                <td><p> <a asp-action="DeleteCrs" asp-controller="Course" asp-route-id ="@i.ID" class="btn btn-outline-danger"> Delete </a> </p></td> 
+               
+                
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
+<style>
+    .btn {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 50%;
+        font-size: 18px;
+    }
+
+</style>

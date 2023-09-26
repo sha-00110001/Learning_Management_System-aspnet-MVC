@@ -1,0 +1,60 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "New";
+    SelectList deptsOptions = new SelectList(ViewBag.depts, "Id", "Name");
+    SelectList crsOptions = new SelectList(ViewBag.crs, "ID", "name");
+}
+
+@* 
+<input asp-for="name" class="form-control" />
+
+ *@
+
+<form method="Post" action="/Instructor/Save">
+    <div class="form-group">
+
+        <
+        <label asp-for="name">Name</label>
+        <input asp-for ="name" value="@Model?.name" type="text" class="form-control"  placeholder="Enter name">
+        <span asp-validation-for="name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="address">Address</label>
+        <input asp-for="address" value="@Model?.address" type="text" class="form-control" placeholder="Enter address">
+        <span asp-validation-for="address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="salary">Salary</label>
+        <input asp-for="salary" value="@Model?.salary" type="number" class="form-control" placeholder="Enter salary">
+        <span asp-validation-for="salary" class="text-danger" ></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DepartmentId"></label>
+        @* <input asp-for="DepartmentId" class="form-control" />  *@
+        <select class="form-control" asp-for="DepartmentId" asp-items="deptsOptions"></select>
+        
+    </div>
+
+     <div class="form-group">
+        <label asp-for="CourseId"></label>
+
+        <select class="form-control"  asp-for="CourseId" asp-items="crsOptions"></select>
+    </div>
+    <br />
+
+    <div style="padding-bottom: 5px; ">
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+    </div>
+    <br />
+    <div>
+        <a href="/Instructor/ShowAllWithVModel" class=" btn btn-outline-secondary"> Back to List </a>
+    </div>
+    <br />
+</form>
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+   
+}

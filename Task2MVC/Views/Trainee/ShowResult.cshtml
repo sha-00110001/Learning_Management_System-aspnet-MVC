@@ -1,0 +1,25 @@
+﻿@model TraineeJoinCrsjoinRes
+
+<div class="card" ">
+
+    <h5 class="card-title" >ID : @Model.traineeID</h5>
+    <p class="card-text">Name :@Model.traineeName</p>
+    <p class="card-text">Course Name :@Model.crsName</p>
+    <p class="card-text">Degree : @Model.Degree</p>
+  
+    
+</div>
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        color : @Model.color;
+    }
+
+      
+</style>
+
+

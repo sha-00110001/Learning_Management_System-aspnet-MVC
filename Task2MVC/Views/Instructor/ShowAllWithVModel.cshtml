@@ -1,0 +1,73 @@
+﻿
+@model InstructorJoinDepartmentViewModel
+
+
+<a href="/Instructor/New" class=" btn btn-outline-success">Add New Instructor</a>
+
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Instructor Name</th>
+            <th scope="col">Department </th>
+            <th scope="col">Course </th>
+            <th scope="col">Details</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int x = 0;
+            var i = Model.Instru;
+            var d = Model.Dept;
+            var c = Model.Crs;
+        }
+         @while (x < Model.Instru.Count())
+        {
+            <tr>
+                <td>@i[x].Id</td>
+                <td>@i[x].name</td>
+
+                <td>@d[i[x].DepartmentId-1].Name</td>    @*  ----------- *@
+                <td>@c[i[x].CourseId-1].name</td> 
+                
+
+@*              <td><p> <a href="/Instructor/details/@d[i[x].DepartmentId-1].Id" class="btn"> Details </a> </p></td>
+            *@
+                <td><p> <a href="/Instructor/details/@i[x].Id" class="btn btn btn-outline-success"> Details </a> </p></td>
+                <td><p> <a href="/Instructor/edit/@i[x].Id" class="btn btn btn-outline-success"> Edit </a> </p></td>
+@*                 <td><p> <a href="/Instructor/delete/@i[x].Id" class="btn btn btn-outline-danger"> Delete </a> </p></td>
+    
+ *@
+                <td>
+                    <a asp-action="Delete" asp-controller="Instructor" asp-route-Id="@i[x].Id" class="btn btn-outline-danger">Delete</a>
+                </td>
+ @{x++;} 
+
+            </tr>
+        }   
+
+</tbody>
+</table>
+
+<style>
+    .btn {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 50%;
+        font-size: 18px;
+    } 
+   
+
+</style>
+

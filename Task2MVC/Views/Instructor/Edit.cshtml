@@ -1,0 +1,77 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "Edit";
+    SelectList deptsOptions = new SelectList(ViewBag.depts,"Id","Name");
+    SelectList crsOptions = new SelectList(ViewBag.crs,"ID","name");
+}
+
+<h1>Edit</h1>
+<div class="card ">
+
+    <form method="post" action="/Instructor/SaveAfterEdit/@Model.Id" class="form-group">
+        <input asp-for="Id" value="@Model.Id" hidden />
+
+        <label asp-for="name"></label>
+        <input asp-for="name" class="form-control" />
+        <span asp-validation-for="name" class="text-danger" ></span>
+        <br />
+       
+        <label asp-for="address"></label>
+        <input asp-for="address" class="form-control" />
+        <span asp-validation-for="address" class="text-danger" ></span>
+        <br />
+
+        <label asp-for="salary"></label>
+        <input asp-for="salary" class="form-control" />
+        <span asp-validation-for="salary" class="text-danger" ></span>
+        <br />
+
+        <label asp-for="DepartmentId"></label>
+        @* <input asp-for="DepartmentId" class="form-control" />  *@
+        <select asp-for="DepartmentId" asp-items="deptsOptions" ></select>
+        
+        <br />
+        <label asp-for="CourseId"></label>
+        
+        <select asp-for="CourseId" asp-items="crsOptions"></select>
+       
+        
+        <br /><br />
+        <button type="submit" class="btn btn-outline-success" >Save</button>
+        <br /><br />
+        <button type="button" class ="btn btn-outline-success" onclick="location.href='@Url.Action("showallwithvmodel", "Instructor")'">Back to List</button>
+
+    </form>
+
+    @section scripts{
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    }
+</div>
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+    }
+
+        .card button {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+           
+</style>
+
+

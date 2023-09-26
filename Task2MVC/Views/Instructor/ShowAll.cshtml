@@ -1,0 +1,50 @@
+﻿@model List<Instructor>
+
+<a href="/Instructor/New" class=" btn btn-outline-success">Add New Instructor<</a>
+<br /><br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Instructor Name</th>
+            <th scope="col">Department </th>
+            <th scope="col">Course </th>
+            <th scope="col">Details</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.Id</td>
+                <td>@i.name</td>
+                <td>@i.DepartmentId</td>
+                <td>@i.CourseId</td>
+                
+                <td><p> <a href="/Instructor/details/@i.Id" class="btn btn btn-outline-success"> Details </a> </p></td>
+                <td><p> <a href="/Instructor/edit/@i.Id" class="btn btn btn-outline-success"> Edit </a> </p></td>
+                <td><p> <a href="/Instructor/delete/@i.Id" class="btn btn btn-outline-danger"> Delete </a> </p></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<style>
+    .btn {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 50%;
+        font-size: 18px;
+    }
+
+
+</style>
